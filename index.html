@@ -19,5 +19,17 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- GitHub Pages SPA path restoration -->
+    <script>
+      (function() {
+        const params = new URLSearchParams(window.location.search);
+        const path = params.get('p');
+        if (path) {
+          const query = params.get('q');
+          const newUrl = '/ar-lab/' + path + (query ? '?' + query : '') + window.location.hash;
+          window.history.replaceState(null, '', newUrl);
+        }
+      })();
+    </script>
   </body>
 </html>

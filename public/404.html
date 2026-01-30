@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AR Lab</title>
+    <script>
+      // GitHub Pages SPA redirect
+      // Converts 404 paths to query params and redirects to index.html
+      // index.html then restores the path for the SPA router
+      const path = window.location.pathname;
+      const query = window.location.search;
+      const hash = window.location.hash;
+      
+      // Redirect to index with the path as a query param
+      window.location.replace(
+        window.location.origin + '/ar-lab/' + 
+        '?p=' + encodeURIComponent(path.replace('/ar-lab/', '')) + 
+        (query ? '&q=' + encodeURIComponent(query.slice(1)) : '') +
+        hash
+      );
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+</html>

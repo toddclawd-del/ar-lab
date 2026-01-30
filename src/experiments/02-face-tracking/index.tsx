@@ -399,28 +399,36 @@ export default function FaceTrackingExperiment() {
     setLoadingProgress('Loading MindAR...')
     
     return new Promise<boolean>((resolve) => {
+      // Use a script with src (more reliable on mobile Safari than textContent)
       const script = document.createElement('script')
       script.type = 'module'
-      script.textContent = `
-        import { MindARThree } from 'https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-face-three.prod.js';
-        window.MindARThree = MindARThree;
-        window.dispatchEvent(new Event('mindar-loaded'));
-      `
+      // Use our loader file which imports MindAR and sets window.MindARThree
+      script.src = import.meta.env.BASE_URL + 'mindar-loader.js'
       
       const handleLoad = () => {
         window.removeEventListener('mindar-loaded', handleLoad)
+        clearTimeout(timeoutId)
         resolve(true)
       }
       
+      const handleError = () => {
+        clearTimeout(timeoutId)
+        console.error('MindAR script failed to load')
+        resolve(false)
+      }
+      
       window.addEventListener('mindar-loaded', handleLoad)
+      script.addEventListener('error', handleError)
       document.head.appendChild(script)
       
       // Timeout fallback
-      setTimeout(() => {
+      const timeoutId = setTimeout(() => {
         if (!window.MindARThree) {
+          window.removeEventListener('mindar-loaded', handleLoad)
+          console.error('MindAR load timed out')
           resolve(false)
         }
-      }, 15000)
+      }, 20000)
     })
   }, [])
 

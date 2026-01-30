@@ -3,6 +3,7 @@ import './App.css'
 
 // Experiments
 import ModelViewer from './experiments/01-model-viewer'
+import FaceTracking from './experiments/02-face-tracking'
 
 const experiments = [
   {
@@ -16,8 +17,8 @@ const experiments = [
     id: '02-face-tracking',
     title: 'Face Tracking',
     description: 'Face detection and filter overlays',
-    component: null,
-    status: 'planned' as const,
+    component: FaceTracking,
+    status: 'done' as const,
   },
   {
     id: '03-image-tracking',

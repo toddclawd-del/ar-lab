@@ -4,6 +4,9 @@ import './App.css'
 // Experiments
 import ModelViewer from './experiments/01-model-viewer'
 import FaceTracking from './experiments/02-face-tracking'
+import ImageTracking from './experiments/03-image-tracking'
+import SurfaceDetection from './experiments/04-surface-detection'
+import WorldTracking from './experiments/05-world-tracking'
 
 const experiments = [
   {
@@ -24,22 +27,22 @@ const experiments = [
     id: '03-image-tracking',
     title: 'Image Tracking',
     description: 'Recognize images and overlay 3D content',
-    component: null,
-    status: 'planned' as const,
+    component: ImageTracking,
+    status: 'done' as const,
   },
   {
     id: '04-surface-detection',
     title: 'Surface Detection',
     description: 'Place objects on real-world surfaces',
-    component: null,
-    status: 'planned' as const,
+    component: SurfaceDetection,
+    status: 'done' as const,
   },
   {
     id: '05-world-tracking',
     title: 'World Tracking',
     description: 'Persistent AR anchors in space',
-    component: null,
-    status: 'planned' as const,
+    component: WorldTracking,
+    status: 'done' as const,
   },
 ]
 

@@ -7,6 +7,7 @@ import FaceTracking from './experiments/02-face-tracking'
 import ImageTracking from './experiments/03-image-tracking'
 import SurfaceDetection from './experiments/04-surface-detection'
 import WorldTracking from './experiments/05-world-tracking'
+import HandTracking from './experiments/06-hand-tracking'
 
 const experiments = [
   {
@@ -42,6 +43,13 @@ const experiments = [
     title: 'World Tracking',
     description: 'Persistent AR anchors in space',
     component: WorldTracking,
+    status: 'done' as const,
+  },
+  {
+    id: '06-hand-tracking',
+    title: 'Hand Tracking',
+    description: 'MediaPipe hand detection & gesture recognition',
+    component: HandTracking,
     status: 'done' as const,
   },
 ]

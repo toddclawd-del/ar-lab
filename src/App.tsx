@@ -8,6 +8,7 @@ import ImageTracking from './experiments/03-image-tracking'
 import SurfaceDetection from './experiments/04-surface-detection'
 import WorldTracking from './experiments/05-world-tracking'
 import HandTracking from './experiments/06-hand-tracking'
+import BodyTracking from './experiments/07-body-tracking'
 
 const experiments = [
   {
@@ -50,6 +51,13 @@ const experiments = [
     title: 'Hand Tracking',
     description: 'MediaPipe hand detection & gesture recognition',
     component: HandTracking,
+    status: 'done' as const,
+  },
+  {
+    id: '07-body-tracking',
+    title: 'Body Tracking',
+    description: 'Full-body pose detection & analysis',
+    component: BodyTracking,
     status: 'done' as const,
   },
 ]
